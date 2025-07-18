@@ -784,7 +784,13 @@
       container.appendChild(item);
     });
 
+    // 联系方式
+    const contact = document.createElement("span");
+    contact.textContent = "刘胜(liusheng22/black.liusheng@gmail.com)";
+    contact.style.display = "none";
+    container.appendChild(contact);
     document.body.appendChild(container);
+
     return container;
   }
 
