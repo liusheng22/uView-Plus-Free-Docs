@@ -1,7 +1,18 @@
+// 动态添加 favicon
+(function() {
+  var link = document.createElement('link');
+  link.rel = 'icon';
+  link.type = 'image/x-icon';
+  link.href = '../assets/favicon.ico';
+  var oldLinks = document.querySelectorAll('link[rel="icon"]');
+  oldLinks.forEach(function(node) { node.parentNode.removeChild(node); });
+  document.head.appendChild(link);
+})();
+
 (function () {
   const isProd = true; //本地看和部署线上
-  const BaseUrl = isProd ? "" : "file:///C:/Users/chatg/Desktop"; // 自己修改目录地址
-  const prodUrl = isProd ? "/uview-plus-offline-doc" : "/uview-plus";
+  const BaseUrl = ""; // 自己修改目录地址
+  const prodUrl = "";
   const menuList = [
     {
       title: "FloatButton 悬浮按钮组件",
