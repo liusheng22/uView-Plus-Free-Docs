@@ -1,3 +1,93 @@
+// 动态批量添加 SEO 标签
+(function() {
+  // 获取页面主内容描述
+  function getPageDescription() {
+    try {
+      var p = document.querySelector('body > div.main-content > p:nth-child(2)');
+      if (p && p.textContent.trim()) {
+        return p.textContent.trim();
+      }
+    } catch (e) {}
+    return 'uView-Plus免费文档，涵盖丰富的前端组件示例与用法，免费无广告，无登录，无扫码，无授权';
+  }
+
+  var seo = {
+    title: document.title || 'uView-Plus 免费组件文档',
+    description: 'uView Plus 免费文档 ' + getPageDescription(),
+    keywords: 'uView Plus, uView-Plus, 免费文档, 离线文档, 组件, 移动端组件, 前端, UI, 组件库, liusheng, liusheng22',
+    url: window.location.origin + window.location.pathname,
+    image: window.location.origin + '/assets/logo.png',
+    site_name: 'uView-Plus 免费组件文档',
+  };
+
+  // 动态添加/覆盖 meta 标签
+  function setMeta(name, content) {
+    var meta = document.querySelector('meta[name="' + name + '"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', name);
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', content);
+  }
+
+  setMeta('description', seo.description);
+  setMeta('keywords', seo.keywords);
+  setMeta('viewport', 'width=device-width, initial-scale=1.0');
+
+  // 动态添加/覆盖 Open Graph 标签
+  function setOG(property, content) {
+    var meta = document.querySelector('meta[property="' + property + '"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('property', property);
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', content);
+  }
+
+  setOG('og:title', seo.title);
+  setOG('og:description', seo.description);
+  setOG('og:type', 'website');
+  setOG('og:url', seo.url);
+  setOG('og:image', seo.image);
+  setOG('og:site_name', seo.site_name);
+
+  // 动态添加/覆盖 Twitter Card 标签
+  function setTwitter(name, content) {
+    var meta = document.querySelector('meta[name="' + name + '"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', name);
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', content);
+  }
+
+  setTwitter('twitter:card', 'summary_large_image');
+  setTwitter('twitter:title', seo.title);
+  setTwitter('twitter:description', seo.description);
+  setTwitter('twitter:image', seo.image);
+  setTwitter('twitter:url', seo.url);
+
+  // 动态添加结构化数据（JSON-LD）
+  var ld = document.createElement('script');
+  ld.type = 'application/ld+json';
+  ld.text = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    'name': seo.site_name,
+    'url': seo.url,
+    'description': seo.description,
+    'inLanguage': 'zh-CN',
+    'image': seo.image
+  });
+  // 避免重复插入
+  var oldLd = document.querySelector('script[type="application/ld+json"]');
+  if (oldLd) oldLd.remove();
+  document.head.appendChild(ld);
+})();
+
 // 动态添加 favicon
 (function() {
   var link = document.createElement('link');
