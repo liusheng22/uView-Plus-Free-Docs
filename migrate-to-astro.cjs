@@ -208,7 +208,7 @@ const url = Astro.url.origin + route;
       <div class="right-phone-inner">
         <iframe
           id="iframeId"
-          src="/Loading.html"
+          src="https://uview-plus.jiangruyi.com/h5/#/"
           width="100%"
           height="90%"
           frameborder="0"
