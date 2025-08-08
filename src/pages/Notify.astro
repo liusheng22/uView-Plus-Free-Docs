@@ -1,0 +1,193 @@
+---
+const title = "uview-plus 组件文档";
+const description = "该组件一般用于页面顶部向下滑出一个提示，尔后自动收起的场景。";
+const keywords = "uview-plus-free, uview-plus 免费文档, uView Plus, uView-Plus, uView, 免费文档, 离线文档, 组件, 移动端组件, 前端, UI, 组件库, liusheng, liusheng22";
+const image = "/assets/logo.png";
+const site_name = "uView-Plus-Free 免费组件文档";
+const route = "/Notify";
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  image={image}
+  site_name={site_name}
+  route={route}
+>
+  <h2>Notify 消息提示</h2>
+      <p>该组件一般用于页面顶部向下滑出一个提示，尔后自动收起的场景。</p>
+
+      <h3>平台差异说明</h3>
+      <div class="table">
+        <div class="table-row table-header">
+          <div class="table-cell">App（vue）</div>
+          <div class="table-cell">App（nvue）</div>
+          <div class="table-cell">H5</div>
+          <div class="table-cell">小程序</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+        </div>
+      </div>
+
+      <h3>基本使用</h3>
+      <pre><code class="language-html">
+  &lt;template&gt;
+      &lt;up-notify message="Hi uview-plus" :show="show"&gt;&lt;/up-notify&gt;
+  &lt;/template&gt;
+  &lt;script setup&gt;  
+  import &#123; ref &#125; from 'vue';  
+    
+  // 创建响应式数据  
+  const show = ref(true);  
+  &lt;/script&gt;
+      </code></pre>
+
+      <h3>ref 调用</h3>
+      <pre><code class="language-html">
+  &lt;template&gt;
+      &lt;up-notify ref="uNotifyRef" message="Hi uview-plus"&gt;&lt;/up-notify&gt;
+  &lt;/template&gt;
+  &lt;script setup&gt;  
+  import &#123; onMounted, ref, onUnmounted &#125; from 'vue';  
+    
+  // 假设你有一个 uNotify 组件的引用  
+  const uNotifyRef = ref(null);  
+    
+  // 在组件挂载后执行  
+  onMounted(() =&gt; &#123;  
+      uNotifyRef.value.show(&#123;  
+          top: 10,  
+          type: 'error',  
+          color: '#000',  
+          bgColor: '#e8e8e8',  
+          message: 'Hi uview-plus',  
+          duration: 1000 * 3,  
+          fontSize: 20,  
+          safeAreaInsetTop: true  
+      &#125;);  
+    
+      // 你也可以定义其他方法或逻辑  
+      // uNotifyRef.value.primary('Primary主题')
+  &#125;);  
+    
+  // 如果需要，在组件卸载时关闭 notify  
+  onUnmounted(() =&gt; &#123;  
+      if (uNotifyRef.value) &#123;  
+          uNotifyRef.value.close();  
+      &#125;  
+  &#125;);  
+  &lt;/script&gt;
+      </code></pre>
+
+      <h3>API</h3>
+
+      <h4>Methods</h4>
+      <div class="table">
+        <div class="table-row table-header">
+          <div class="table-cell">事件名</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">类型</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">show</div>
+          <div class="table-cell">显示并加载配置</div>
+          <div class="table-cell">Handler</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">primary / success / warning / error</div>
+          <div class="table-cell">显示当前主题消息提示</div>
+          <div class="table-cell">Handler</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">close</div>
+          <div class="table-cell">关闭消息提示</div>
+          <div class="table-cell">Handler</div>
+        </div>
+      </div>
+
+      <h4>Show Methods Arguments</h4>
+      <div class="table">
+        <div class="table-row table-header">
+          <div class="table-cell">参数</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">类型</div>
+          <div class="table-cell">默认值</div>
+          <div class="table-cell">可选值</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">top</div>
+          <div class="table-cell">到顶部的距离</div>
+          <div class="table-cell">String | Number</div>
+          <div class="table-cell">0</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">type</div>
+          <div class="table-cell">主题，primary，success，warning，error</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">primary</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">color</div>
+          <div class="table-cell">字体颜色</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">#ffffff</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">bgColor</div>
+          <div class="table-cell">背景颜色</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">message</div>
+          <div class="table-cell">展示的文字内容</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">duration</div>
+          <div class="table-cell">展示时长，为0时不消失，单位ms</div>
+          <div class="table-cell">String | Number</div>
+          <div class="table-cell">3000</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">fontSize</div>
+          <div class="table-cell">字体大小，单位rpx</div>
+          <div class="table-cell">String | Number</div>
+          <div class="table-cell">15</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">safeAreaInsetTop</div>
+          <div class="table-cell">是否留出顶部安全距离（状态栏高度）</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">false</div>
+          <div class="table-cell">true</div>
+        </div>
+      </div>
+
+      <h4>Slot</h4>
+      <div class="table">
+        <div class="table-row table-header">
+          <div class="table-cell">参数</div>
+          <div class="table-cell">说明</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">icon</div>
+          <div class="table-cell">通知内容</div>
+        </div>
+      </div>
+</Layout>

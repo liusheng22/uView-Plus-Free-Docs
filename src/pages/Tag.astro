@@ -1,0 +1,313 @@
+---
+const title = "uview-plus 组件文档";
+const description = "tag组件一般用于标记和选择，我们提供了更加丰富的表现形式，能够较全面的涵盖您的使用场景。";
+const keywords = "uview-plus-free, uview-plus 免费文档, uView Plus, uView-Plus, uView, 免费文档, 离线文档, 组件, 移动端组件, 前端, UI, 组件库, liusheng, liusheng22";
+const image = "/assets/logo.png";
+const site_name = "uView-Plus-Free 免费组件文档";
+const route = "/Tag";
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  image={image}
+  site_name={site_name}
+  route={route}
+>
+  <h2>Tag 标签</h2>
+      <p>
+        tag组件一般用于标记和选择，我们提供了更加丰富的表现形式，能够较全面的涵盖您的使用场景。
+      </p>
+
+      <h2>平台支持情况</h2>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">App（vue）</div>
+          <div class="table-cell">App（nvue）</div>
+          <div class="table-cell">H5</div>
+          <div class="table-cell">小程序</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+        </div>
+      </div>
+      <h3>基本使用</h3>
+      <p>
+        通过 <code>type</code> 参数设置主题类型，默认为
+        <code>primary</code>。通过属性 <code>text</code> 设置标签内容。
+      </p>
+      <pre><code class="language-html">&lt;up-tag text="标签" plain size="mini" type="warning"&gt;&lt;/up-tag&gt;</code></pre>
+
+      <h3>自定义主题</h3>
+      <pre><code class="language-html">&lt;up-tag text="标签"&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="warning"&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="success"&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="error"&gt;&lt;/up-tag&gt;</code></pre>
+
+      <h3>圆形标签</h3>
+      <p>呈现类似胶囊形状。</p>
+      <pre><code class="language-html">&lt;up-tag text="标签" plain shape="circle"&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="warning" shape="circle"&gt;&lt;/up-tag&gt;</code></pre>
+
+      <h3>镂空标签</h3>
+      <pre><code class="language-html">&lt;up-tag text="标签" plain&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="warning" plain&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="success" plain&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="error" plain&gt;&lt;/up-tag&gt;</code></pre>
+
+      <h3>镂空带背景色</h3>
+      <p>添加 <code>plainFill</code> 属性可实现镂空带背景色效果。</p>
+      <pre><code class="language-html">&lt;up-tag text="标签" plain&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="warning" plain plainFill&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="success" plain plainFill&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="error" plain plainFill&gt;&lt;/up-tag&gt;</code></pre>
+
+      <h3>自定义尺寸</h3>
+      <p><code>size</code> 属性提供三种规格的标签大小，默认中等。</p>
+      <pre><code class="language-html">&lt;up-tag text="标签" plain size="mini"&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="warning"&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="success" plain size="large"&gt;&lt;/up-tag&gt;</code></pre>
+
+      <h3>可关闭标签</h3>
+      <p><code>tag</code> 在右上角设有删除标签的样式。</p>
+      <pre><code class="language-html">&lt;up-tag text="标签" size="mini" closable :show="close1" @close="close1 = false"&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="warning" closable :show="close2" @close="close2 = false"&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="success" plain size="large" closable :show="close3" @close="close3 = false"&gt;&lt;/up-tag&gt;
+  &lt;script setup&gt;
+  import &#123; ref, reactive &#125; from 'vue';
+  const close1 = ref(true);
+  const close2 = ref(true);
+  const close3 = ref(true);
+  const radios = reactive([
+      &#123; checked: true &#125;,
+      &#123; checked: false &#125;,
+      &#123; checked: false &#125;
+  ]);
+  const checkboxs = reactive([
+      &#123; checked: true &#125;,
+      &#123; checked: false &#125;,
+      &#123; checked: false &#125;
+  ]);
+  &lt;/script&gt;</code></pre>
+      <pre><code class="language-html">&lt;up-tag text="标签" size="mini" closable :show="close1" @close="close1 = false"&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="warning" closable :show="close2" @close="close2 = false"&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="success" plain size="large" closable :show="close3" @close="close3 = false"&gt;&lt;/up-tag&gt;
+  
+&lt;script setup&gt;
+  import &#123; ref, reactive &#125; from 'vue';
+
+  const close1 = ref(true);
+  const close2 = ref(true);
+  const close3 = ref(true);
+  const radios = reactive ([
+    &#123; checked: true &#125;,
+    &#123; checked: false &#125;,
+    &#123; checked: false &#125;
+  ]);
+  const checkboxs = reactive ([
+    &#123; checked: true &#125;,
+    &#123; checked: false &#125;,
+    &#123; checked: false &#125;
+  ]);
+&lt;/script&gt;
+</code></pre>
+
+      <h3>带图片和图标</h3>
+      <pre><code class="language-html">&lt;up-tag text="标签" size="mini" icon="map" plain&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="warning" icon="tags-fill"&gt;&lt;/up-tag&gt;
+  &lt;up-tag text="标签" type="success" plain size="large" icon="https://cdn.uviewui.com/uview/example/tag.png"&gt;&lt;/up-tag&gt;</code></pre>
+
+      <h3>单选标签和多选标签</h3>
+      <p>提供了单选和多选的事件，可在事件中获取参数列表。</p>
+      <pre><code class="language-html">&lt;template&gt;
+      &lt;!-- 单选 --&gt;
+      &lt;view class="u-page__tag-item" v-for="(item, index) in radios" :key="index"&gt;
+          &lt;up-tag :text="`选项$&#123;index + 1&#125;`" :plain="!item.checked" type="warning" :name="index" @click="radioClick"&gt;
+          &lt;/up-tag&gt;
+      &lt;/view&gt;
+      &lt;!-- 多选 --&gt;
+      &lt;view class="u-page__tag-item" v-for="(item, index) in checkboxs" :key="index"&gt;
+          &lt;up-tag :text="`选项$&#123;index + 1&#125;`" :plain="!item.checked" type="warning" :name="index" @click="checkboxClick"&gt;
+          &lt;/up-tag&gt;
+      &lt;/view&gt;
+  &lt;/template&gt;
+  &lt;script setup&gt;
+  import &#123; reactive &#125; from 'vue';
+  const radios = reactive([
+      &#123; checked: true &#125;,
+      &#123; checked: false &#125;,
+      &#123; checked: false &#125;
+  ]);
+  const checkboxs = reactive([
+      &#123; checked: true &#125;,
+      &#123; checked: false &#125;,
+      &#123; checked: false &#125;
+  ]);
+  const radioClick = (name) =&gt; &#123;
+      radios.forEach((item, index) =&gt; &#123;
+          item.checked = index === name;
+      &#125;);
+  &#125;;
+  const checkboxClick = (name) =&gt; &#123;
+      checkboxs[name].checked =!checkboxs[name].checked;
+  &#125;;
+  &lt;/script&gt;
+  &lt;style lang="scss"&gt;
+  .u-page__tag-item &#123;
+      margin-right: 20px;
+  &#125;
+  &lt;/style&gt;</code></pre>
+      <pre><code class="language-html">&lt;template&gt;
+      &lt;!-- 单选 --&gt;
+      &lt;view class="u-page__tag-item" v-for="(item, index) in radios" :key="index"&gt;
+          &lt;up-tag :text="`选项$&#123;index + 1&#125;`" :plain="!item.checked" type="warning" :name="index" @click="radioClick"&gt;
+          &lt;/up-tag&gt;
+      &lt;/view&gt;
+      &lt;!-- 多选 --&gt;
+      &lt;view class="u-page__tag-item" v-for="(item, index) in checkboxs" :key="index"&gt;
+          &lt;up-tag :text="`选项$&#123;index + 1&#125;`" :plain="!item.checked" type="warning" :name="index" @click="checkboxClick"&gt;
+          &lt;/up-tag&gt;
+      &lt;/view&gt;
+  &lt;/template&gt;
+
+&lt;script setup&gt;
+  import &#123; reactive &#125; from 'vue';
+
+  const radios = reactive([
+    &#123; checked: true &#125;,
+    &#123; checked: false &#125;,
+    &#123; checked: false &#125;
+  ]);
+  const checkboxs = reactive([
+    &#123; checked: true &#125;,
+    &#123; checked: false &#125;,
+    &#123; checked: false &#125;
+  ]);
+  
+  const radioClick = (name) =&gt; &#123;
+    radios.forEach((item, index) =&gt; &#123;
+      item.checked = index === name;
+    &#125;);
+  &#125;;
+  
+  const checkboxClick = (name) =&gt; &#123;
+    checkboxs[name].checked = !checkboxs[name].checked;
+  &#125;;
+&lt;/script&gt;
+  &lt;style lang="scss"&gt;
+  .u-page__tag-item &#123;
+      margin-right: 20px;
+  &#125;
+  &lt;/style&gt;</code></pre>
+
+      <p>文档中未明确给出右侧演示页面源代码的具体链接。</p>
+
+      <h3>API</h3>
+      <h4>Props</h4>
+      <div class="table">
+        <div class="table-row">
+          <div class="table-cell">参数</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">类型</div>
+          <div class="table-cell">默认值</div>
+          <div class="table-cell">可选值</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">text</div>
+          <div class="table-cell">标签显示的文本内容</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">type</div>
+          <div class="table-cell">主题类型</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">primary</div>
+          <div class="table-cell">
+            primary / warning / success / error / info
+          </div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">plain</div>
+          <div class="table-cell">是否为镂空样式</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">false</div>
+          <div class="table-cell">true</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">plainFill</div>
+          <div class="table-cell">镂空样式下是否填充背景色</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">false</div>
+          <div class="table-cell">true</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">size</div>
+          <div class="table-cell">标签尺寸</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">medium</div>
+          <div class="table-cell">mini / medium / large</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">shape</div>
+          <div class="table-cell">标签形状</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">rect</div>
+          <div class="table-cell">rect / circle</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">closable</div>
+          <div class="table-cell">是否显示关闭按钮</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">false</div>
+          <div class="table-cell">true</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">show</div>
+          <div class="table-cell">控制标签是否显示</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">true</div>
+          <div class="table-cell">false</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">icon</div>
+          <div class="table-cell">左侧显示的图标名称或图片链接</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">name</div>
+          <div class="table-cell">在单选或多选场景下的标识符</div>
+          <div class="table-cell">String | Number</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">-</div>
+        </div>
+      </div>
+
+      <h4>Events</h4>
+      <div class="table">
+        <div class="table-row">
+          <div class="table-cell">事件名</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">回调参数</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">click</div>
+          <div class="table-cell">点击标签时触发</div>
+          <div class="table-cell">标签的 <code>name</code> 属性值</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">close</div>
+          <div class="table-cell">点击关闭按钮时触发</div>
+          <div class="table-cell">无</div>
+        </div>
+      </div>
+</Layout>

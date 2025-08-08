@@ -1,0 +1,127 @@
+---
+const title = "uview-plus 组件文档";
+const description = "box 盒子一般为左边一个盒子，右侧两个等高的半盒组成，常用于 App 首页座位重点突出。";
+const keywords = "uview-plus-free, uview-plus 免费文档, uView Plus, uView-Plus, uView, 免费文档, 离线文档, 组件, 移动端组件, 前端, UI, 组件库, liusheng, liusheng22";
+const image = "/assets/logo.png";
+const site_name = "uView-Plus-Free 免费组件文档";
+const route = "/Box";
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  image={image}
+  site_name={site_name}
+  route={route}
+>
+  <h1>Box 盒子</h1>
+      <p>
+        box 盒子一般为左边一个盒子，右侧两个等高的半盒组成，常用于 App
+        首页座位重点突出。
+      </p>
+
+      <h2>平台差异说明</h2>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">App（vue）</div>
+          <div class="table-cell">App（nvue）</div>
+          <div class="table-cell">H5</div>
+          <div class="table-cell">小程序</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+        </div>
+      </div>
+
+      <h2>基本使用</h2>
+      <p>
+        通过 bgColors(设置 3
+        个盒子的背景色)，height(盒子总高度)，gap(盒子间隔)。通过 borderRadius
+        设置盒子圆角大小。
+      </p>
+      <pre class="language-html">
+        <code>
+    &lt;template&gt;
+      &lt;view class="p-4 bg-white"&gt;
+        &lt;up-box height="160px" gap="12px" :bgColors="['#EEFCFF', '#FCF8FF', '#FDF8F2']"&gt;
+          &lt;template #left&gt;
+            左
+          &lt;/template&gt;
+          &lt;template #rightTop&gt;
+            右上
+          &lt;/template&gt;
+          &lt;template #rightBottom&gt;
+            右下
+          &lt;/template&gt;
+        &lt;/up-box&gt;
+      &lt;/view&gt;
+    &lt;/template&gt;
+        </code>
+      </pre>
+
+      <h2>API</h2>
+      <h3>Props</h3>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">参数</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">类型</div>
+          <div class="table-cell">默认值</div>
+          <div class="table-cell">可选值</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">height</div>
+          <div class="table-cell">高度</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">160px</div>
+          <div class="table-cell"></div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">bgCorlors</div>
+          <div class="table-cell">盒子背景色</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">['#EEFCFF', '#FCF8FF', '#FDF8F2']</div>
+          <div class="table-cell"></div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">borderRadius</div>
+          <div class="table-cell">圆角</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">6px</div>
+          <div class="table-cell"></div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">gap</div>
+          <div class="table-cell">间隔</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">15px</div>
+          <div class="table-cell"></div>
+        </div>
+      </div>
+
+      <h3>Slot</h3>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">名称</div>
+          <div class="table-cell">说明</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">left</div>
+          <div class="table-cell">左侧</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">rightTop</div>
+          <div class="table-cell">右上</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">rightBottom</div>
+          <div class="table-cell">右下</div>
+        </div>
+      </div>
+</Layout>

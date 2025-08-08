@@ -1,0 +1,175 @@
+---
+const title = "uview-plus 组件文档";
+const description = "区隔内容的分割线，一般用于页面底部\"没有更多\"的提示。";
+const keywords = "uview-plus-free, uview-plus 免费文档, uView Plus, uView-Plus, uView, 免费文档, 离线文档, 组件, 移动端组件, 前端, UI, 组件库, liusheng, liusheng22";
+const image = "/assets/logo.png";
+const site_name = "uView-Plus-Free 免费组件文档";
+const route = "/Divider";
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  image={image}
+  site_name={site_name}
+  route={route}
+>
+  <h1>Divider 分割线</h1>
+      <p>区隔内容的分割线，一般用于页面底部"没有更多"的提示。</p>
+
+      <h2>平台差异说明</h2>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">App（vue）</div>
+          <div class="table-cell">App（nvue）</div>
+          <div class="table-cell">H5</div>
+          <div class="table-cell">小程序</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+        </div>
+      </div>
+
+      <h2>基本使用</h2>
+      <p>文字内容通过text传入</p>
+      <pre class="language-html">
+        <code>
+    &lt;up-divider text="分割线"&gt;&lt;/up-divider&gt;
+        </code>
+      </pre>
+
+      <h2>设置虚线</h2>
+      <p>可以通过dashed指定虚线</p>
+      <pre class="language-html">
+        <code>
+    &lt;up-divider text="分割线" :dashed="true"&gt;&lt;/up-divider&gt;
+        </code>
+      </pre>
+
+      <h2>设置细线</h2>
+      <p>可以通过hairline指定细线</p>
+      <pre class="language-html">
+        <code>
+    &lt;up-divider text="分割线" :hairline="true"&gt;&lt;/up-divider&gt;
+        </code>
+      </pre>
+
+      <h2>设置以点代替文字</h2>
+      <p>可以通过dot指定以点代替文字</p>
+      <pre class="language-html">
+        <code>
+    &lt;up-divider text="分割线" :dot="true"&gt;&lt;/up-divider&gt;
+        </code>
+      </pre>
+
+      <h2>设置文本靠左靠右</h2>
+      <p>可以通过textPosition指定文字靠左靠右</p>
+      <pre class="language-html">
+        <code>
+    &lt;up-divider text="靠左" textPosition="left"&gt;&lt;/up-divider&gt;
+    &lt;up-divider text="靠右" textPosition="right"&gt;&lt;/up-divider&gt;
+        </code>
+      </pre>
+
+      <h2>设置文本颜色和线条颜色</h2>
+      <p>可以通过textColor和lineColor指定文字和线条颜色</p>
+      <pre class="language-html">
+        <code>
+    &lt;up-divider
+            text="分割线"
+            textColor="#2979ff"
+            lineColor="#ff0000"
+    &gt;&lt;/up-divider&gt;
+        </code>
+      </pre>
+
+      <h2>API</h2>
+      <h3>Props</h3>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">参数</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">类型</div>
+          <div class="table-cell">默认值</div>
+          <div class="table-cell">可选值</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">dashed</div>
+          <div class="table-cell">是否虚线</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">false</div>
+          <div class="table-cell">true</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">hairline</div>
+          <div class="table-cell">是否细线</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">true</div>
+          <div class="table-cell">false</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">dot</div>
+          <div class="table-cell">是否以点替代文字，优先于text字段起作用</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">false</div>
+          <div class="table-cell">true</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">textPosition</div>
+          <div class="table-cell">内容文本的位置</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">center</div>
+          <div class="table-cell">left、right</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">text</div>
+          <div class="table-cell">文本内容</div>
+          <div class="table-cell">String | Number</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">textSize</div>
+          <div class="table-cell">文本大小</div>
+          <div class="table-cell">String | Number</div>
+          <div class="table-cell">14</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">textColor</div>
+          <div class="table-cell">文本颜色</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">#909399</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">lineColor</div>
+          <div class="table-cell">线条颜色</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">#dcdfe6</div>
+          <div class="table-cell">-</div>
+        </div>
+      </div>
+
+      <h3>Events</h3>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">事件名</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">回调参数</div>
+          <div class="table-cell">版本</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">click</div>
+          <div class="table-cell">divider组件被点击时触发</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">-</div>
+        </div>
+      </div>
+</Layout>

@@ -1,0 +1,395 @@
+---
+const title = "uview-plus 组件文档";
+const description = "该组件一般用于左滑唤出操作菜单的场景，用的最多的是左滑删除操作。";
+const keywords = "uview-plus-free, uview-plus 免费文档, uView Plus, uView-Plus, uView, 免费文档, 离线文档, 组件, 移动端组件, 前端, UI, 组件库, liusheng, liusheng22";
+const image = "/assets/logo.png";
+const site_name = "uView-Plus-Free 免费组件文档";
+const route = "/SwipeAction";
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  image={image}
+  site_name={site_name}
+  route={route}
+>
+  <h2>SwipeAction 滑动单元格</h2>
+      <p>该组件一般用于左滑唤出操作菜单的场景，用的最多的是左滑删除操作。</p>
+      <p>
+        <strong>注意</strong>：如果把该组件通过 v-for
+        用于左滑删除的列表，请保证循环的 :key 是一个唯一值，可以用数据的 id 或者
+        title 替代。 不能是数组循环的
+        index，否则删除的时候，可能会出现数据错乱。
+      </p>
+
+      <h3>平台差异说明</h3>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">平台</div>
+          <div class="table-cell">支持情况</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">App（vue）</div>
+          <div class="table-cell">√</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">App（nvue）</div>
+          <div class="table-cell">√</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">H5</div>
+          <div class="table-cell">√</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">小程序</div>
+          <div class="table-cell">√</div>
+        </div>
+      </div>
+
+      <h3>基本使用</h3>
+      <p>
+        通过 slot 传入内部内容即可，可以将 v-for 的 "index" 索引值传递给 index
+        参数，用于点击时，在回调方法中对某一个数据进行操作(点击回调时第一个参数会返回此索引值)。内部的按钮通过
+        options
+        参数配置，此参数为一个数组，元素为对象，可以配置按钮的文字，背景颜色(建议只配置此两个参数即可)，请勿配置宽高等属性。
+      </p>
+      <pre class="language-html">
+        <code>
+    &lt;template&gt;
+      &lt;view&gt;
+        &lt;up-swipe-action&gt;
+          &lt;up-swipe-action-item
+            v-model:show="show"
+            :options="options1"
+          &gt;
+            &lt;view class="swipe-action up-border-top up-border-bottom"&gt;
+              &lt;view class="swipe-action__content"&gt;
+                &lt;text class="swipe-action__content__text"&gt;基础使用&lt;/text&gt;
+              &lt;/view&gt;
+            &lt;/view&gt;
+          &lt;/up-swipe-action-item&gt;
+        &lt;/up-swipe-action&gt;
+      &lt;/view&gt;
+    &lt;/template&gt;
+    &lt;script setup&gt;  
+    import &#123; reactive, ref &#125; from 'vue';  
+      
+    const show = ref(false)
+    // 使用 reactive 创建响应式对象  
+    const options1 = reactive([&#123;  
+        text: '删除'  
+    &#125;]);  
+    &lt;/script&gt;
+    &lt;style lang="scss"&gt;
+        .u-page &#123;
+            padding: 0;
+        &#125;
+    
+        .u-demo-block__title &#123;
+            padding: 10px 0 2px 15px;
+        &#125;
+    
+        .swipe-action &#123;
+            &amp;__content &#123;
+                 padding: 25rpx 0;
+        
+                &amp;__text &#123;
+                     font-size: 15px;
+                     color: $up-main-color;
+                     padding-left: 30rpx;
+                 &#125;
+            &#125;
+        &#125;
+    &lt;/style&gt;
+        </code>
+      </pre>
+
+      <h3>多个按钮并列</h3>
+      <p>通过添加 options 的值，达到多个并列的效果。</p>
+      <pre class="language-html">
+        <code>
+    &lt;template&gt;
+      &lt;view&gt;
+        &lt;up-swipe-action&gt;
+          &lt;up-swipe-action-item :options="options2"&gt;
+            &lt;view class="swipe-action up-border-top up-border-bottom"&gt;
+              &lt;view class="swipe-action__content"&gt;
+                &lt;text class="swipe-action__content__text"&gt;两个按钮并列&lt;/text&gt;
+              &lt;/view&gt;
+            &lt;/view&gt;
+          &lt;/up-swipe-action-item&gt;
+        &lt;/up-swipe-action&gt;
+      &lt;/view&gt;
+    &lt;/template&gt;
+    &lt;script setup&gt;  
+    import &#123; reactive &#125; from 'vue';  
+      
+    // 使用 reactive 创建响应式对象数组  
+    const options2 = reactive([  
+      &#123;  
+        text: '收藏',  
+        style: &#123;  
+          backgroundColor: '#3c9cff'  
+        &#125;  
+      &#125;,  
+      &#123;  
+        text: '删除',  
+        style: &#123;  
+          backgroundColor: '#f56c6c'  
+        &#125;  
+      &#125;  
+    ]);  
+    &lt;/script&gt;
+    &lt;style lang="scss"&gt;
+        .u-page &#123;
+            padding: 0;
+        &#125;
+    
+        .u-demo-block__title &#123;
+            padding: 10px 0 2px 15px;
+        &#125;
+    
+        .swipe-action &#123;
+            &amp;__content &#123;
+                 padding: 25rpx 0;
+        
+                &amp;__text &#123;
+                     font-size: 15px;
+                     color: $up-main-color;
+                     padding-left: 30rpx;
+                 &#125;
+            &#125;
+        &#125;
+    &lt;/style&gt;
+        </code>
+      </pre>
+
+      <h3>组合使用</h3>
+      <p>通过增设 options 的 options 达成组合效果。</p>
+      <pre class="language-html">
+        <code>
+    &lt;template&gt;
+      &lt;view&gt;
+        &lt;up-swipe-action&gt;
+          &lt;up-swipe-action-item
+            :options="item.options"
+            v-for="(item, index) in options4"
+            :disabled="item.disabled"
+            :key="index"
+          &gt;
+            &lt;view
+              class="swipe-action up-border-top"
+              :class="[index === options4.length-1 &amp;&amp; 'up-border-bottom']"
+            &gt;
+              &lt;view class="swipe-action__content"&gt;
+                &lt;text class="swipe-action__content__text"&gt;&#123;&#123; item.text &#125;&#125;&lt;/text&gt;
+              &lt;/view&gt;
+            &lt;/view&gt;
+          &lt;/up-swipe-action-item&gt;
+        &lt;/up-swipe-action&gt;
+      &lt;/view&gt;
+    &lt;/template&gt;
+    &lt;script setup&gt;  
+    import &#123; reactive &#125; from 'vue';  
+      
+    // 使用 reactive 创建响应式对象数组  
+    const options4 = reactive([  
+      &#123;  
+        text: '禁用状态',  
+        disabled: true,  
+        options: [&#123;  
+          text: '置顶',  
+          style: &#123;  
+            backgroundColor: '#3c9cff',  
+          &#125;  
+        &#125;, &#123;  
+          text: '取消',  
+          style: &#123;  
+            backgroundColor: '#f9ae3d',  
+          &#125;  
+        &#125;],  
+      &#125;, &#123;  
+        text: '正常状态',  
+        disabled: false,  
+        options: [&#123;  
+          text: '置顶',  
+          style: &#123;  
+            backgroundColor: '#3c9cff',  
+          &#125;  
+        &#125;, &#123;  
+          text: '取消',  
+          style: &#123;  
+            backgroundColor: '#f9ae3d',  
+          &#125;  
+        &#125;],  
+      &#125;, &#123;  
+        text: '自动关闭',  
+        disabled: false,  
+        options: [&#123;  
+          text: '置顶',  
+          style: &#123;  
+            backgroundColor: '#3c9cff',  
+          &#125;  
+        &#125;, &#123;  
+          text: '取消',  
+          style: &#123;  
+            backgroundColor: '#f9ae3d',  
+          &#125;  
+        &#125;],  
+      &#125;  
+    ]);  
+    &lt;/script&gt;
+    &lt;style lang="scss"&gt;
+        .u-page &#123;
+            padding: 0;
+        &#125;
+    
+        .u-demo-block__title &#123;
+            padding: 10px 0 2px 15px;
+        &#125;
+    
+        .swipe-action &#123;
+            &amp;__content &#123;
+                 padding: 25rpx 0;
+        
+                &amp;__text &#123;
+                     font-size: 15px;
+                     color: $up-main-color;
+                     padding-left: 30rpx;
+                 &#125;
+            &#125;
+        &#125;
+    &lt;/style&gt;
+        </code>
+      </pre>
+
+      <h3>API</h3>
+
+      <h4>SwipeAction Props</h4>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">参数</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">类型</div>
+          <div class="table-cell">默认值</div>
+          <div class="table-cell">可选值</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">autoClose</div>
+          <div class="table-cell">是否自动关闭其他 swipe 按钮组</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">true</div>
+          <div class="table-cell">false</div>
+        </div>
+      </div>
+
+      <h4>SwipeAction Event</h4>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">事件名</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">回调参数</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">click</div>
+          <div class="table-cell">点击组件时触发</div>
+          <div class="table-cell">(index)</div>
+        </div>
+      </div>
+
+      <h4>SwipeActionItem Props</h4>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">参数</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">类型</div>
+          <div class="table-cell">默认值</div>
+          <div class="table-cell">可选值</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">show</div>
+          <div class="table-cell">控制打开或者关闭</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">false</div>
+          <div class="table-cell">true</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">closeOnClick</div>
+          <div class="table-cell">点击后立即关闭</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">false</div>
+          <div class="table-cell">true</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">index</div>
+          <div class="table-cell">标识符，如果是 v-for，可用 index 索引</div>
+          <div class="table-cell">String | Number</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">disabled</div>
+          <div class="table-cell">是否禁用</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">false</div>
+          <div class="table-cell">true</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">autoClose</div>
+          <div class="table-cell">是否自动关闭其他 swipe 按钮组</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">true</div>
+          <div class="table-cell">false</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">threshold</div>
+          <div class="table-cell">
+            滑动距离阈值，只有大于此值，才被认为是要打开菜单
+          </div>
+          <div class="table-cell">Number</div>
+          <div class="table-cell">20</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">options</div>
+          <div class="table-cell">右侧按钮内容</div>
+          <div class="table-cell">Array</div>
+          <div class="table-cell">[]</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">duration</div>
+          <div class="table-cell">动画过渡时间，单位 ms</div>
+          <div class="table-cell">String | Number</div>
+          <div class="table-cell">300</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">name</div>
+          <div class="table-cell">标识符，如果是 v-for，可用 index 索引值</div>
+          <div class="table-cell">String | Number</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">-</div>
+        </div>
+      </div>
+
+      <h4>SwipeActionItem Event</h4>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">事件名</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">回调参数</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">click</div>
+          <div class="table-cell">按钮被点击时触发</div>
+          <div class="table-cell">
+            name: props 参数 name 的值，index: 第几个按钮被点击
+          </div>
+        </div>
+      </div>
+</Layout>

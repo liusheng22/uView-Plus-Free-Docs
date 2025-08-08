@@ -1,0 +1,167 @@
+---
+const title = "uview-plus 组件文档";
+const description = "该组件用于实现组件的动画过渡效果。";
+const keywords = "uview-plus-free, uview-plus 免费文档, uView Plus, uView-Plus, uView, 免费文档, 离线文档, 组件, 移动端组件, 前端, UI, 组件库, liusheng, liusheng22";
+const image = "/assets/logo.png";
+const site_name = "uView-Plus-Free 免费组件文档";
+const route = "/Transition";
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  image={image}
+  site_name={site_name}
+  route={route}
+>
+  <h2>Transition 动画</h2>
+      <p>该组件用于实现组件的动画过渡效果。</p>
+      <h3>平台差异说明</h3>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">App（vue）</div>
+          <div class="table-cell">App（nvue）</div>
+          <div class="table-cell">H5</div>
+          <div class="table-cell">小程序</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+        </div>
+      </div>
+      <h3>基本使用</h3>
+      <p>
+        通过 <code>slot</code> 传入内容，默认使用的是 <code>fade</code> 效果。
+      </p>
+      <pre><code class="language-html">
+    &lt;template&gt;
+        &lt;up-transition :show="show"&gt;
+            &lt;view class="transition"&gt;&lt;/view&gt;
+        &lt;/up-transition&gt;
+    &lt;/template&gt;
+    &lt;script setup&gt;
+    import &#123; ref &#125; from 'vue';
+    
+    const show = ref(true);
+    &lt;/script&gt;
+      </code></pre>
+      <h3>动画模式</h3>
+      <p>通过 <code>mode</code> 传入效果模式，目前支持：</p>
+      <ul>
+        <li><code>fade</code>：淡入</li>
+        <li><code>fade-up</code>：上滑淡入</li>
+        <li><code>fade-down</code>：下滑淡入</li>
+        <li><code>fade-left</code>：左滑淡入</li>
+        <li><code>fade-right</code>：右滑淡入</li>
+        <li><code>slide-up</code>：上滑进入</li>
+        <li><code>slide-down</code>：下滑进入</li>
+        <li><code>slide-left</code>：左滑进入</li>
+        <li><code>slide-right</code>：右滑进入</li>
+        <li><code>zoom-in</code>：缩放</li>
+        <li><code>zoom-out</code>：缩放</li>
+      </ul>
+      <pre><code class="language-html">
+    &lt;template&gt;
+        &lt;up-transition :show="show" mode="zoom-in"&gt;
+            &lt;view class="transition"&gt;&lt;/view&gt;
+        &lt;/up-transition&gt;
+    &lt;/template&gt;
+    &lt;script setup&gt;
+    import &#123; ref &#125; from 'vue';
+    
+    const show = ref(true);
+    &lt;/script&gt;
+      </code></pre>
+
+      <h3>API</h3>
+      <h4>Props</h4>
+      <div class="table">
+        <div class="table-row table-header">
+          <div class="table-cell">参数</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">类型</div>
+          <div class="table-cell">默认值</div>
+          <div class="table-cell">可选值</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">show</div>
+          <div class="table-cell">是否展示组件</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">false</div>
+          <div class="table-cell">true</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">mode</div>
+          <div class="table-cell">使用的动画模式</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">fade</div>
+          <div class="table-cell">
+            fade、fade-up、fade-down、fade-left、fade-right、slide-up、slide-down、slide-left、slide-right、zoom-in、zoom-out
+          </div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">duration</div>
+          <div class="table-cell">动画的执行时间，单位 ms</div>
+          <div class="table-cell">String | Number</div>
+          <div class="table-cell">300</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">timingFunction</div>
+          <div class="table-cell">使用的动画过渡函数，见上方说明</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">ease-out</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">customStyle</div>
+          <div class="table-cell">自定义样式</div>
+          <div class="table-cell">Object</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">-</div>
+        </div>
+      </div>
+      <h4>Events</h4>
+      <div class="table">
+        <div class="table-row table-header">
+          <div class="table-cell">事件名</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">回调参数</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">beforeEnter</div>
+          <div class="table-cell">进入前触发</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">enter</div>
+          <div class="table-cell">进入中触发</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">afterEnter</div>
+          <div class="table-cell">进入后触发</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">beforeLeave</div>
+          <div class="table-cell">离开前触发</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">leave</div>
+          <div class="table-cell">离开中触发</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">afterLeave</div>
+          <div class="table-cell">离开后触发</div>
+          <div class="table-cell">-</div>
+        </div>
+      </div>
+</Layout>

@@ -1,0 +1,171 @@
+---
+const title = "FloatButton 悬浮按钮组件";
+const description = "FloatButton 是一个悬浮按钮组件，可用于在页面中提供快捷操作入口，在不同平台（App（vue）、App（nvue）、H5、小程序）上均有良好支持。";
+const keywords = "uview-plus-free, uview-plus 免费文档, uView Plus, uView-Plus, uView, 免费文档, 离线文档, 组件, 移动端组件, 前端, UI, 组件库, liusheng, liusheng22";
+const image = "/assets/logo.png";
+const site_name = "uView-Plus-Free 免费组件文档";
+const route = "/FloatButton";
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  image={image}
+  site_name={site_name}
+  route={route}
+>
+  <h1>FloatButton 悬浮按钮组件</h1>
+        <p>FloatButton 是一个悬浮按钮组件，可用于在页面中提供快捷操作入口，在不同平台（App（vue）、App（nvue）、H5、小程序）上均有良好支持。</p>
+
+        <h2>平台支持情况</h2>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">App（vue）</div>
+          <div class="table-cell">App（nvue）</div>
+          <div class="table-cell">H5</div>
+          <div class="table-cell">小程序</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+        </div>
+      </div>
+
+        <h2>基本使用</h2>
+        <h3>单一悬浮按钮</h3>
+        <p>使用 <code>:isMenu="false"</code> 可以创建一个单一的悬浮按钮，不展开子菜单。可通过 <code>top</code> 属性调整其位置。</p>
+        <pre><code class="language-html">&lt;template&gt;
+  &lt;view&gt;
+    &lt;up-float-button :isMenu="false" top="90px"&gt;&lt;/up-float-button&gt;
+  &lt;/view&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+import &#123; ref &#125; from 'vue';
+const list = ref([]);
+&lt;/script&gt;</code></pre>
+
+        <h3>带子菜单的悬浮按钮</h3>
+        <p>使用 <code>:isMenu="true"</code> 可展开子菜单，<code>:list</code> 属性绑定子菜单列表，<code>@item-click</code> 监听子菜单点击事件。</p>
+        <pre><code class="language-html">&lt;template&gt;
+  &lt;view&gt;
+    &lt;up-float-button :isMenu="true" top="220px" :list="list" @item-click="handleItemClick"&gt;&lt;/up-float-button&gt;
+  &lt;/view&gt;
+&lt;/template&gt;
+&lt;script setup&gt;
+import &#123; ref &#125; from 'vue';
+const list = ref([
+  &#123; key: 'item1', name: 'Item 1', color: '#fff', backgroundColor: 'blue' &#125;,
+  &#123; key: 'item2', name: 'Item 2', color: '#fff', backgroundColor: 'green' &#125;
+]);
+const handleItemClick = (item) =&gt; &#123;
+  console.log('Clicked item:', item);
+&#125;;
+&lt;/script&gt;</code></pre>
+
+        <h2>API 文档</h2>
+        <h3>Props</h3>
+        <div class="table-container">
+            <div class="table-row table-header">
+                <div class="table-cell">属性</div>
+                <div class="table-cell">类型</div>
+                <div class="table-cell">默认值</div>
+                <div class="table-cell">说明</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">isMenu</div>
+                <div class="table-cell">Boolean</div>
+                <div class="table-cell">false</div>
+                <div class="table-cell">是否展开子菜单</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">list</div>
+                <div class="table-cell">Array</div>
+                <div class="table-cell">[]</div>
+                <div class="table-cell">子菜单列表，包含子菜单的信息，如 key, name, color, backgroundColor 等</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">top</div>
+                <div class="table-cell">String</div>
+                <div class="table-cell"></div>
+                <div class="table-cell">悬浮按钮距离顶部的距离</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">bottom</div>
+                <div class="table-cell">String</div>
+                <div class="table-cell"></div>
+                <div class="table-cell">悬浮按钮距离底部的距离</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">right</div>
+                <div class="table-cell">String</div>
+                <div class="table-cell">30px</div>
+                <div class="table-cell">悬浮按钮距离右侧的距离</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">backgroundColor</div>
+                <div class="table-cell">String</div>
+                <div class="table-cell">#2979ff</div>
+                <div class="table-cell">悬浮按钮的背景颜色</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">color</div>
+                <div class="table-cell">String</div>
+                <div class="table-cell">#fff</div>
+                <div class="table-cell">悬浮按钮的文字颜色</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">width</div>
+                <div class="table-cell">String</div>
+                <div class="table-cell">50px</div>
+                <div class="table-cell">悬浮按钮的宽度</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">height</div>
+                <div class="table-cell">String</div>
+                <div class="table-cell">50px</div>
+                <div class="table-cell">悬浮按钮的高度</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">borderColor</div>
+                <div class="table-cell">String</div>
+                <div class="table-cell"></div>
+                <div class="table-cell">悬浮按钮的边框颜色</div>
+            </div>
+        </div>
+
+        <h3>Slots</h3>
+        <div class="table-container">
+            <div class="table-row table-header">
+                <div class="table-cell">名称</div>
+                <div class="table-cell">说明</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">default</div>
+                <div class="table-cell">自定义弹出菜单内容，可通过 scope 接收 showList 数据</div>
+            </div>
+        </div>
+
+        <h3>Events</h3>
+        <div class="table-container">
+            <div class="table-row table-header">
+                <div class="table-cell">事件名称</div>
+                <div class="table-cell">回调参数</div>
+                <div class="table-cell">说明</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">click</div>
+                <div class="table-cell"></div>
+                <div class="table-cell">悬浮按钮的点击事件</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">item-click</div>
+                <div class="table-cell">点击的子菜单项</div>
+                <div class="table-cell">子菜单的点击事件</td>
+            </div>
+        </div>
+</Layout>

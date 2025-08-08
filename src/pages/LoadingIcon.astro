@@ -1,0 +1,175 @@
+---
+const title = "uview-plus 组件文档";
+const description = "此组件为一个小动画，目前用在uview-plus的loadMore加载更多等组件的正在加载状态场景。";
+const keywords = "uview-plus-free, uview-plus 免费文档, uView Plus, uView-Plus, uView, 免费文档, 离线文档, 组件, 移动端组件, 前端, UI, 组件库, liusheng, liusheng22";
+const image = "/assets/logo.png";
+const site_name = "uView-Plus-Free 免费组件文档";
+const route = "/LoadingIcon";
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  image={image}
+  site_name={site_name}
+  route={route}
+>
+  <h2>LoadingIcon加载动画</h2>
+      <p>
+        此组件为一个小动画，目前用在uview-plus的loadMore加载更多等组件的正在加载状态场景。
+      </p>
+      <h2>平台支持情况</h2>
+      <div class="table-container">
+        <div class="table-row table-header">
+          <div class="table-cell">App（vue）</div>
+          <div class="table-cell">App（nvue）</div>
+          <div class="table-cell">H5</div>
+          <div class="table-cell">小程序</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+        </div>
+      </div>
+      <h3>基本使用</h3>
+      <p>
+        通过mode设定动画的类型，circle为圆圈的形状，flower为经典类似花朵的形状
+      </p>
+      <pre><code class="language-html">&lt;template&gt;
+      &lt;view&gt;
+          &lt;up-loading-icon&gt;&lt;/up-loading-icon&gt;
+      &lt;/view&gt;
+  &lt;/template&gt;</code></pre>
+      <h3>动画文字</h3>
+      <p>text可以指定文字内容 textSize可以指定文字大小</p>
+      <pre><code class="language-html">&lt;up-loading-icon text="加载中" textSize="18"&gt;&lt;/up-loading-icon&gt;</code></pre>
+      <h3>模式类型</h3>
+      <p>mode可以指定模式</p>
+      <pre><code class="language-html">&lt;up-loading-icon text="花朵形"&gt;&lt;/up-loading-icon&gt;
+  &lt;up-loading-icon mode="semicircle" text="半圆"&gt;&lt;/up-loading-icon&gt;
+  &lt;up-loading-icon mode="circle" text="圆型"&gt;&lt;/up-loading-icon&gt;</code></pre>
+      <h3>排列类型</h3>
+      <p>vertical可以指定文字和图标是否垂直排列</p>
+      <pre><code class="language-html">&lt;up-loading-icon :vertical="true"&gt;&lt;/up-loading-icon&gt;</code></pre>
+      <h3>动画模式</h3>
+      <p>
+        timing-function可以指定mode为semicircle或circle时动画里css中animation-timing-function的属性，默认为ease-in-out
+      </p>
+      <pre><code class="language-html">&lt;up-loading-icon timing-function="linear"&gt;&lt;/up-loading-icon&gt;</code></pre>
+      <h3>动画运行时间</h3>
+      <p>duration可以指定动画的运行周期时间</p>
+      <pre><code class="language-html">&lt;up-loading-icon duration="2000"&gt;&lt;/up-loading-icon&gt;</code></pre>
+      <h3>图标颜色</h3>
+      <p>
+        color可以指定动画活动区域的颜色,
+        inactive-color可以制定mode为circle时的暗边颜色
+      </p>
+      <pre><code class="language-html">&lt;up-loading-icon color="red"&gt;&lt;/up-loading-icon&gt;
+  
+  &lt;up-loading-icon mode="circle" inactive-color="red"&gt;&lt;/up-loading-icon&gt;</code></pre>
+      <h3>图标尺寸</h3>
+      <p>通过size设定尺寸，单位rpx，组件内把size值体现为组件的宽和高</p>
+      <pre><code class="language-html">&lt;up-loading-icon size="36"&gt;&lt;/up-loading-icon&gt;</code></pre>
+      <h3>显示或隐藏动画</h3>
+      <p>通过show设置为true或false，来显示或隐藏动画</p>
+      <pre><code class="language-html">&lt;up-loading-icon :show="true"&gt;&lt;/up-loading-icon&gt;
+  
+  /* 等价于 */
+  &lt;up-loading-icon show&gt;&lt;/up-loading-icon&gt;</code></pre>
+
+      <h3>API</h3>
+      <h4>Props</h4>
+      <div class="table">
+        <div class="table-row">
+          <div class="table-cell">参数</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">类型</div>
+          <div class="table-cell">默认值</div>
+          <div class="table-cell">可选值</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">show</div>
+          <div class="table-cell">是否显示动画</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">true</div>
+          <div class="table-cell">false</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">color</div>
+          <div class="table-cell">图标颜色</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">color['u-tips-color']</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">textColor</div>
+          <div class="table-cell">提示文本颜色</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">color['u-tips-color']</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">vertical</div>
+          <div class="table-cell">图标和文字是否垂直排列</div>
+          <div class="table-cell">Boolean</div>
+          <div class="table-cell">false</div>
+          <div class="table-cell">true</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">mode</div>
+          <div class="table-cell">模式选择，见上方说明</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">circle</div>
+          <div class="table-cell">circle \ semicircle</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">size</div>
+          <div class="table-cell">加载图标的大小，单位px</div>
+          <div class="table-cell">String | Number</div>
+          <div class="table-cell">24</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">textSize</div>
+          <div class="table-cell">加载文字的大小，单位px</div>
+          <div class="table-cell">String | Number</div>
+          <div class="table-cell">15</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">text</div>
+          <div class="table-cell">文字内容</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">-</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">timingFunction</div>
+          <div class="table-cell">
+            指定animation-timing-function的css属性，但只支持mode为circle或semicircle才有效
+          </div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">ease-in-out</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">duration</div>
+          <div class="table-cell">动画执行周期时间，单位ms</div>
+          <div class="table-cell">string | Number</div>
+          <div class="table-cell">1200</div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">inactiveColor</div>
+          <div class="table-cell">图标的暗边颜色, mode为circle 模式有效</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">transparent</div>
+          <div class="table-cell">-</div>
+        </div>
+      </div>
+</Layout>

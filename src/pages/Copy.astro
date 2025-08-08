@@ -1,0 +1,107 @@
+---
+const title = "uview-plus 组件文档";
+const description = "点击复制";
+const keywords = "uview-plus-free, uview-plus 免费文档, uView Plus, uView-Plus, uView, 免费文档, 离线文档, 组件, 移动端组件, 前端, UI, 组件库, liusheng, liusheng22";
+const image = "/assets/logo.png";
+const site_name = "uView-Plus-Free 免费组件文档";
+const route = "/Copy";
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title={title} 
+  description={description} 
+  keywords={keywords}
+  image={image}
+  site_name={site_name}
+  route={route}
+>
+  <h2>Copy 复制 3.1.52</h2>
+      <p>点击复制</p>
+
+      <h3>注意</h3>
+      <p>需要 uview - plus 版本 v3.1.52 以上版本</p>
+
+      <h3>使用场景</h3>
+      <p>点击页面元素复制文字到剪切板</p>
+
+      <h3>平台差异说明</h3>
+      <div class="table">
+        <div class="table-row table-header">
+          <div class="table-cell">App（vue）</div>
+          <div class="table-cell">App（nvue）</div>
+          <div class="table-cell">H5</div>
+          <div class="table-cell">小程序</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+          <div class="table-cell">√</div>
+        </div>
+      </div>
+
+      <h3>基本使用</h3>
+      <p>通过 content 设置要复制的文字内容，通过 alertStyle 设置提示样式</p>
+      <pre><code class="language-html">
+  &lt;template&gt;
+      &lt;view&gt;
+          &lt;up-copy content="uview-plus is great !"&gt;
+              &lt;text&gt;点击复制&lt;/text&gt;
+          &lt;/up-copy&gt;
+          &lt;up-copy content="uview-plus is great !"&gt;
+              &lt;up-button type="primary"&gt;点击复制&lt;/up-button&gt;
+          &lt;/up-copy&gt;
+      &lt;/view&gt;
+  &lt;/template&gt;
+      </code></pre>
+
+      <h3>API</h3>
+
+      <h4>Props</h4>
+      <div class="table">
+        <div class="table-row table-header">
+          <div class="table-cell">参数</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">类型</div>
+          <div class="table-cell">默认值</div>
+          <div class="table-cell">可选值</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">content</div>
+          <div class="table-cell">待复制文字内容</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell"></div>
+          <div class="table-cell">-</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">alertStyle</div>
+          <div class="table-cell">提示样式</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">toast</div>
+          <div class="table-cell">modal</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">notice</div>
+          <div class="table-cell">提示消息</div>
+          <div class="table-cell">String</div>
+          <div class="table-cell">复制成功</div>
+          <div class="table-cell">-</div>
+        </div>
+      </div>
+
+      <h4>Events</h4>
+      <div class="table">
+        <div class="table-row table-header">
+          <div class="table-cell">事件名</div>
+          <div class="table-cell">说明</div>
+          <div class="table-cell">回调参数</div>
+        </div>
+        <div class="table-row">
+          <div class="table-cell">success</div>
+          <div class="table-cell">复制成功</div>
+          <div class="table-cell">-</div>
+        </div>
+      </div>
+</Layout>
